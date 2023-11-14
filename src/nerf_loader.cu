@@ -377,7 +377,7 @@ NerfDataset load_nerf(const std::vector<fs::path>& jsonpaths, float sharpen_amou
 
 				mean_sharpness /= (mean_end - mean_start);
 
-				if (resolve_path(base_path, frames_copy[i]["file_path"]).exists() && frames_copy[i].value("sharpness", 1.0) > sharpness_discard_threshold * mean_sharpness) {
+				if (resolve_path(base_path, frames_copy[i]["file_path"]).exists()) {
 					frames.emplace_back(frames_copy[i]);
 				} else {
 					// tlog::info() << "discarding frame " << frames_copy[i]["file_path"];
